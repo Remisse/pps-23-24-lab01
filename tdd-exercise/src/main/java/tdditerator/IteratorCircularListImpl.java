@@ -4,6 +4,7 @@ import tdd.CircularList;
 import tdd.CircularListImpl;
 
 import java.util.Iterator;
+import java.util.function.IntSupplier;
 import java.util.stream.IntStream;
 
 public class IteratorCircularListImpl implements IteratorCircularList {
@@ -28,21 +29,21 @@ public class IteratorCircularListImpl implements IteratorCircularList {
         return list.isEmpty();
     }
 
-    @Override
-    public Iterator<Integer> forwardIterator() {
+    private Iterator<Integer> getIterator(IntSupplier supplier) {
         if (isEmpty())
             return IntStream.empty().iterator();
 
-        return IntStream.generate(() -> list.next().orElseThrow())
+        return IntStream.generate(supplier)
                 .iterator();
     }
 
     @Override
-    public Iterator<Integer> backwardIterator() {
-        if (isEmpty())
-            return IntStream.empty().iterator();
+    public Iterator<Integer> forwardIterator() {
+        return getIterator(() -> list.next().orElseThrow());
+    }
 
-        return IntStream.generate(() -> list.previous().orElseThrow())
-                .iterator();
+    @Override
+    public Iterator<Integer> backwardIterator() {
+        return getIterator(() -> list.previous().orElseThrow());
     }
 }

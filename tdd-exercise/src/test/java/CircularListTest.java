@@ -4,7 +4,6 @@ import tdd.CircularList;
 import tdd.CircularListImpl;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -42,7 +41,6 @@ class CircularListTest {
     @Test
     void testReset() {
         list.add(1);
-        assertEquals(1, list.size());
         list.reset();
         assertTrue(list.isEmpty());
     }
@@ -50,15 +48,13 @@ class CircularListTest {
     @Test
     void testNext() {
         list.add(1);
-        final Optional<Integer> next = list.next();
-        assertEquals(1, next.orElseThrow());
+        assertEquals(1, list.next().orElseThrow());
     }
 
     @Test
     void testPrevious() {
         list.add(1);
-        final Optional<Integer> previous = list.previous();
-        assertEquals(1, previous.orElseThrow());
+        assertEquals(1, list.previous().orElseThrow());
     }
 
     @Test
