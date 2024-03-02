@@ -33,7 +33,7 @@ class SimpleBankAccountWithAtmTest {
     void testUselessDeposit() {
         bankAccount.deposit(accountHolder.getId(), 100);
         bankAccount.deposit(accountHolder.getId(), .5);
-        assertEquals(99, bankAccount.getBalance());
+        assertEquals(98.5, bankAccount.getBalance());
     }
 
     @Test

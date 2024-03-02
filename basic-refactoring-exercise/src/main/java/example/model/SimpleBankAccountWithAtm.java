@@ -20,7 +20,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
     }
 
     private boolean isDepositAllowed(final double amount) {
-        return amount > ATM_FEE;
+        return bankAccount.getBalance() + amount > ATM_FEE;
     }
 
     @Override
