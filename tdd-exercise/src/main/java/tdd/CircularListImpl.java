@@ -28,11 +28,11 @@ public class CircularListImpl implements CircularList {
         return list.isEmpty();
     }
 
-    private Optional<Integer> getItemAt(final int index) {
+    private Optional<Integer> getCurrentItem() {
         if (isEmpty())
             return Optional.empty();
 
-        return Optional.of(list.get(index));
+        return Optional.of(list.get(currentIndex));
     }
 
     private int wraparoundIndex(final int newIndex) {
@@ -47,13 +47,13 @@ public class CircularListImpl implements CircularList {
     @Override
     public Optional<Integer> next() {
         currentIndex = wraparoundIndex(currentIndex + 1);
-        return getItemAt(currentIndex);
+        return getCurrentItem();
     }
 
     @Override
     public Optional<Integer> previous() {
         currentIndex = wraparoundIndex(currentIndex - 1);
-        return getItemAt(currentIndex);
+        return getCurrentItem();
     }
 
     @Override
