@@ -22,13 +22,13 @@ public interface IteratorCircularList {
     boolean isEmpty();
 
     /**
-     * Provides an iterator that yields elements starting from the first and going forward.
+     * Provides an iterator that yields elements going forward.
      * @return an iterator
      */
     Iterator<Integer> forwardIterator();
 
     /**
-     * Provides an iterator that yields elements starting from the last and going backwards.
+     * Provides an iterator that yields elements going backwards.
      * @return an iterator
      */
     Iterator<Integer> backwardIterator();
