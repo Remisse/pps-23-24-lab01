@@ -32,9 +32,9 @@ class IteratorCircularListTest {
             list.add(elem);
     }
 
-    private void testSequenceOnIterator(final Iterator<Integer> iterator, final List<Integer> expected) {
-        for (final int elem : expected) {
-            assertEquals(elem, iterator.next());
+    private void testSequenceOnIterator(final Iterator<Integer> iterator, final List<Integer> expectedSequence) {
+        for (final int expected : expectedSequence) {
+            assertEquals(expected, iterator.next());
         }
     }
 
