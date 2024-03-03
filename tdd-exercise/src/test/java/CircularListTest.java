@@ -23,7 +23,15 @@ class CircularListTest {
     @Test
     void testEmpty() {
         assertTrue(list.isEmpty());
+    }
+
+    @Test
+    void testNextIsEmpty() {
         assertTrue(list.next().isEmpty());
+    }
+
+    @Test
+    void testPreviousIsEmpty() {
         assertTrue(list.previous().isEmpty());
     }
 
